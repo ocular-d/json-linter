@@ -8,8 +8,7 @@ org.label-schema.vendor="ocular-d" \
 
 ENV npm_config_loglevel=silent
 
-WORKDIR /srv
-
+# hadolint ignore=DL3018
 RUN apk add --no-cache \
         bash \
 		fd
@@ -17,9 +16,14 @@ RUN apk add --no-cache \
 RUN npm install -g jsonlint@1.6.3 && \
 	rm -rf ~/.npm
 
-COPY entrypoint.sh entrypoint.sh
+COPY entrypoint.sh /srv/entrypoint.sh
 
-RUN chmod +x entrypoint.sh
+RUN chown -R node:node /srv
+
+RUN chmod +x /srv/entrypoint.sh
+
+WORKDIR /srv
+
 #ENTRYPOINT ["bash"]
 ENTRYPOINT ["/srv/entrypoint.sh"]
 
