@@ -1,0 +1,2 @@
+# json-linter
+GitHub Action
