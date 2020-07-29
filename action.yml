@@ -1,0 +1,9 @@
+name: 'json-lint'
+description: 'Validate JSON'
+author: 'ocular-d'
+branding:
+  icon: 'truck'
+  color: 'blue'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
