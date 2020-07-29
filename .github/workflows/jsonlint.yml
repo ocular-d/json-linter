@@ -1,0 +1,10 @@
+on: push
+
+name: Testing
+jobs:
+  linting:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: json-lint
+      uses: ./
