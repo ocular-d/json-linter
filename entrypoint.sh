@@ -10,7 +10,7 @@ RED=$ESC_SEQ"31;01m"
 
 echo -e "${YELLOW}==> Linting JSON <==${RESET}"
 
-fd -e json jsonlint -c {} \; 2> error.txt
+fd -e json -x jsonlint -c {} \; 2> error.txt
 #fd -e json -x jsonlint -q {} \; 2> error.txt
 #fd -e json -x jsonlint -q {} \; 2> error.txt
 #exec markdown-link-check {} \; 2> error.txt

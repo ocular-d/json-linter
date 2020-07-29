@@ -24,7 +24,7 @@ RUN chmod +x /srv/entrypoint.sh
 
 WORKDIR /srv
 
-#ENTRYPOINT ["bash"]
-ENTRYPOINT ["/srv/entrypoint.sh"]
+ENTRYPOINT ["bash"]
+#ENTRYPOINT ["/srv/entrypoint.sh"]
 
 USER node
