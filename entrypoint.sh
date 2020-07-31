@@ -18,15 +18,4 @@ else
     echo -e "${GREEN}Great, all good${NC}"
     echo ::set-output name=status::'Success'
 fi
-#fd -e json -x jsonlint -c {} \; 2> error.txt
-#fd -e json -x jsonlint -q {} \; 2> error.txt
-#fd -e json -x jsonlint -q {} \; 2> error.txt
-#exec markdown-link-check {} \; 2> error.txt
 
-
-# if [ -e error.txt ] ; then
-#   if grep -q "ERROR:" error.txt; then
-#     echo -e "${RED}Please check the log${RESET}"
-#     exit 1
-#   fi
-# fi

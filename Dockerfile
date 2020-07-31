@@ -16,15 +16,17 @@ RUN apk add --no-cache \
 RUN npm install -g jsonlint@1.6.3 && \
 	rm -rf ~/.npm
 
-COPY entrypoint.sh /srv/entrypoint.sh
+WORKDIR /test
 
-RUN chown -R node:node /srv
+COPY entrypoint.sh /test/entrypoint.sh
 
-RUN chmod +x /srv/entrypoint.sh
+#RUN chown -R node:node /test
 
-WORKDIR /srv
+RUN chmod +x /test/entrypoint.sh
+
+#WORKDIR /test
 
 #ENTRYPOINT ["bash"]
-ENTRYPOINT ["/srv/entrypoint.sh"]
+ENTRYPOINT ["/test/entrypoint.sh"]
 
-USER node
+#USER node
