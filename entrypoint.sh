@@ -10,7 +10,14 @@ RED=$ESC_SEQ"31;01m"
 
 echo -e "${YELLOW}==> Linting JSON <==${RESET}"
 
-fd -e json -x jsonlint -c
+fd -e json -x jsonlint -c | tee error.log
+if [ -s "$FILE" ]; then
+    echo -e "${RED}Ooh, there was an error${NC}"
+    echo ::set-output name=exit_code::1
+else
+    echo -e "${GREEN}Great, all good${NC}"
+    echo ::set-output name=status::'Success'
+fi
 #fd -e json -x jsonlint -c {} \; 2> error.txt
 #fd -e json -x jsonlint -q {} \; 2> error.txt
 #fd -e json -x jsonlint -q {} \; 2> error.txt
