@@ -1,4 +1,4 @@
-FROM node:lts-alpine3.12
+FROM node:lts-alpine3.13
 LABEL maintainer="ocular-d <sven@ocular-d.tech>" \
 org.label-schema.vendor="ocular-d" \
     com.github.actions.name="JSON Lint Action" \
@@ -14,19 +14,16 @@ RUN apk add --no-cache \
 		fd
 
 RUN npm install -g jsonlint@1.6.3 && \
-	rm -rf ~/.npm
+	npm cache clean --force
 
-WORKDIR /test
+USER node
+WORKDIR /home/node
 
-COPY entrypoint.sh /test/entrypoint.sh
+COPY --chown=node:node entrypoint.sh .
+RUN chmod u+x entrypoint.sh
 
-#RUN chown -R node:node /test
 
-RUN chmod +x /test/entrypoint.sh
-
-#WORKDIR /test
 
 #ENTRYPOINT ["bash"]
-ENTRYPOINT ["/test/entrypoint.sh"]
-
-#USER node
+#ENTRYPOINT ["/test/entrypoint.sh"]
+ENTRYPOINT ["./entrypoint.sh"]
