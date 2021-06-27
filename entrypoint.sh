@@ -14,7 +14,7 @@ chmod a+w $FILE
 
 echo -e "${YELLOW}==> Linting JSON <==${RESET}"
 
-fd -e json -x jsonlint --quiet --compact | tee $FILE
+fd --extension json --exec jsonlint --quiet --compact | tee $FILE
 if [ -s "$FILE" ]; then
     echo -e "${RED}Ooh, there was an error${NC}"
     echo ::set-output name=exit_code::1
