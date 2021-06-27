@@ -17,10 +17,9 @@ echo -e "${YELLOW}==> Linting JSON <==${RESET}"
 
 fd --extension json --exec jsonlint --quiet --compact | tee $FILE
 if [ -s "$FILE" ]; then
-    echo -e "${RED}Ooh, there was an error${NC}"
+    echo -e "${RED}Ooh, there was an error${RESET}"
     echo ::set-output name=exit_code::1
 else
-    echo -e "${GREEN}Great, all good${NC}"
+    echo -e "${GREEN}Great, all good${RESET}"
     echo ::set-output name=status::'Success'
 fi
-
