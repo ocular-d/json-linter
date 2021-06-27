@@ -8,7 +8,7 @@ RESET=$ESC_SEQ"39;49;00m"
 YELLOW=$ESC_SEQ"33;01m"
 RED=$ESC_SEQ"31;01m"
 
-FILE=error.log
+FILE=/home/node/error.log
 touch $FILE
 chmod a+w $FILE
 
