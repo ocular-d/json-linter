@@ -7,6 +7,7 @@ ESC_SEQ="\\x1b["
 RESET=$ESC_SEQ"39;49;00m"
 YELLOW=$ESC_SEQ"33;01m"
 RED=$ESC_SEQ"31;01m"
+GREEN=$ESC_SEQ"32;01m"
 
 FILE=/home/node/error.log
 touch $FILE
