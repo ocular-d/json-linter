@@ -12,7 +12,7 @@ FILE=error.log
 
 echo -e "${YELLOW}==> Linting JSON <==${RESET}"
 
-fd -e json -x jsonlint -c | tee error.log
+fd -e json -x jsonlint --quiet --compact | tee $FILE
 if [ -s "$FILE" ]; then
     echo -e "${RED}Ooh, there was an error${NC}"
     echo ::set-output name=exit_code::1
