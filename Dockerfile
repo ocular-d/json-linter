@@ -19,11 +19,12 @@ RUN npm install -g jsonlint@1.6.3 && \
 USER node
 WORKDIR /home/node
 
-COPY --chown=node:node entrypoint.sh .
-RUN chmod u+x entrypoint.sh
+COPY --chown=node:node entrypoint.sh /code/
+RUN chmod u+x /code/entrypoint.sh
 
 
 
 #ENTRYPOINT ["bash"]
 #ENTRYPOINT ["/test/entrypoint.sh"]
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["/code/entrypoint.sh"]
+CMD []
