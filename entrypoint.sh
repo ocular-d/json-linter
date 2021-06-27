@@ -15,7 +15,7 @@ chmod a+w $FILE
 
 echo -e "${YELLOW}==> Linting JSON <==${RESET}"
 echo -e "Checking these files:"
-fd --extension json --list-details
+fd --extension json -X ls -ld
 echo -e "Results:"
 fd --extension json --exec jsonlint --quiet --compact | tee $FILE
 if [ -s "$FILE" ]; then
