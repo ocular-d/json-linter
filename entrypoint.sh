@@ -9,8 +9,8 @@ YELLOW=$ESC_SEQ"33;01m"
 RED=$ESC_SEQ"31;01m"
 
 FILE=error.log
-sudo touch $FILE
-sudo chmod a+w $FILE
+touch $FILE
+chmod a+w $FILE
 
 echo -e "${YELLOW}==> Linting JSON <==${RESET}"
 
