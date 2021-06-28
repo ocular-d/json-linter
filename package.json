@@ -1,0 +1,14 @@
+{
+  "name": "json-linter",
+  "version": "0.0.3",
+  "main": "index.js",
+  "repository": "git@github.com:ocular-d/json-linter.git",
+  "author": "sven <sven@so36.net>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^27.0.5"
+  }
+}
