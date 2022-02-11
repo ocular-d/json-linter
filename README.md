@@ -27,7 +27,8 @@ A GitHub Action for [JSON Lint](https://www.npmjs.com/package/jsonlint)
 
 ## Install
 
-https://www.npmjs.com/package/@bencuk/jsonlint
+- https://www.npmjs.com/package/@bencuk/jsonlint
+- https://github.com/CICDToolbox/json-lint
 
 ## Usage
 
