@@ -1,4 +1,4 @@
-FROM node:lts-alpine3.13
+FROM node:lts-alpine3.15
 LABEL maintainer="ocular-d <sven@ocular-d.tech>" \
 org.label-schema.vendor="ocular-d" \
     com.github.actions.name="JSON Lint Action" \
@@ -13,7 +13,8 @@ RUN apk add --no-cache \
         bash \
 		fd
 
-RUN npm install -g jsonlint@1.6.3 && \
+# Test with https://github.com/circlecell/jsonlint-mod
+RUN npm install -g jsonlint-mod@1.7.6 && \
 	npm cache clean --force
 
 USER node
