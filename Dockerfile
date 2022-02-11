@@ -14,7 +14,8 @@ RUN apk add --no-cache \
 		fd
 
 # Test with https://github.com/circlecell/jsonlint-mod
-RUN npm install -g jsonlint-mod@1.7.6 && \
+RUN npm install -g npm@8.5.0 && \
+    npm install -g jsonlint-mod@1.7.6 && \
 	npm cache clean --force
 
 USER node

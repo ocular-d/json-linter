@@ -27,7 +27,7 @@ A GitHub Action for [JSON Lint](https://www.npmjs.com/package/jsonlint)
 
 ## Install
 
-TCB
+https://www.npmjs.com/package/@bencuk/jsonlint
 
 ## Usage
 
