@@ -26,8 +26,17 @@ split_on_commas() {
 split_on_commas "$1" | while read item; do
   # Custom logic goes here
   echo Validating: ${item}
-  jsonlint --quiet --compact
+  jsonlint --quiet --compact ${item}
 done
+
+#for value in I like programming
+#do
+#    echo $value
+#done
+
+#for val in ${StringArray[@]}; do
+#   echo $val
+#done
 
 #echo -e "${YELLOW}==> Linting JSON <==${RESET}"
 #echo -e "Checking these files:"
