@@ -25,7 +25,8 @@ split_on_commas() {
 
 split_on_commas "$1" | while read item; do
   # Custom logic goes here
-  echo Item: ${item}
+  Validating: ${item}
+  jsonlint --quiet --compact
 done
 
 #echo -e "${YELLOW}==> Linting JSON <==${RESET}"
