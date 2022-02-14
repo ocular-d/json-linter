@@ -9,15 +9,28 @@ YELLOW=$ESC_SEQ"33;01m"
 RED=$ESC_SEQ"31;01m"
 GREEN=$ESC_SEQ"32;01m"
 
-FILE=/home/node/error.log
-touch $FILE
-chmod a+w $FILE
+ERORR_FILE=/home/node/error.log
+touch $ERORR_FILE
+chmod a+w $ERORR_FILE
+
+split_on_commas() {
+  local IFS=,
+  local FILE_LIST=($1)
+  for file in "${FILE_LIST[@]}"; do
+    echo "$file"
+  done
+}
+
+split_on_commas "INPUT_FILES" | while read item; do
+  # Custom logic goes here
+  echo Item: ${item}
+done
 
 echo -e "${YELLOW}==> Linting JSON <==${RESET}"
-echo -e "Checking these files:"
-fd --extension json -X ls -ld
+#echo -e "Checking these files:"
+#fd --extension json -X ls -ld
 echo -e "Results:"
-fd --extension json --exec jsonlint --quiet --compact | tee $FILE
+fd --extension json --exec jsonlint --quiet --compact | tee $ERORR_FILE
 if [ -s "$FILE" ]; then
     echo -e "${RED}Ooh, there was an error${RESET}"
     echo ::set-output name=exit_code::1

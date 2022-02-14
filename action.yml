@@ -1,9 +1,15 @@
 name: 'json-lint'
 description: 'Validate JSON'
 author: 'ocular-d'
+inputs:
+  files:
+    description: 'Comma separated string with paths to files and directories to check for existence.'
+    required: true
 branding:
   icon: 'truck'
   color: 'blue'
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  args:
+    - ${{ inputs.files }}

@@ -8,3 +8,5 @@ jobs:
     - uses: actions/checkout@master
     - name: json-lint
       uses: ./
+      with:
+        files: "test/test.json, test/test2.json"
