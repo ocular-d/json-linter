@@ -25,7 +25,7 @@ split_on_commas() {
 
 split_on_commas "$1" | while read item; do
   # Custom logic goes here
-  Validating: ${item}
+  echo Validating: ${item}
   jsonlint --quiet --compact
 done
 
