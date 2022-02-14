@@ -26,12 +26,12 @@ split_on_commas "$1" | while read item; do
   # Custom logic goes here
   echo -e "Validating: ${item}"
   jsonlint --quiet --compact "${item}" | tee $ERROR_LOG
-  # if [ -s "$ERROR_LOG" ]; then
-  #   echo -e "${RED}Ooh, there was an error${RESET}"
-  #   echo ::set-output name=exit_code::1
-  # else
-  #   echo -e "${GREEN}Great, all good${RESET}"
-  #   echo ::set-output name=status::'Success'
-  # fi
+  if [ -s "$ERROR_LOG" ]; then
+    echo -e "${RED}Ooh, there was an error${RESET}"
+    echo ::set-output name=exit_code::1
+  else
+    echo -e "${GREEN}Great, all good${RESET}"
+    echo ::set-output name=status::'Success'
+  fi
 done
 
