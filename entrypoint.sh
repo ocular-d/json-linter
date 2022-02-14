@@ -15,7 +15,7 @@ chmod a+w $ERROR_LOG
 
 split_on_commas() {
   local IFS=,
-  local FILE_LIST=("$1")
+  local FILE_LIST=($1)
   for file in "${FILE_LIST[@]}"; do
     echo "$file"
   done
