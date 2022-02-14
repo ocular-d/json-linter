@@ -21,12 +21,14 @@ split_on_commas() {
   done
 }
 
-split_on_commas "INPUT_FILES" | while read item; do
+#USE_QUIET_MODE="$1"
+
+split_on_commas "$1" | while read item; do
   # Custom logic goes here
   echo Item: ${item}
 done
 
-echo -e "${YELLOW}==> Linting JSON <==${RESET}"
+#echo -e "${YELLOW}==> Linting JSON <==${RESET}"
 #echo -e "Checking these files:"
 #fd --extension json -X ls -ld
 #echo -e "Results:"
