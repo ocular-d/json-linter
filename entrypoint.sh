@@ -29,12 +29,12 @@ done
 echo -e "${YELLOW}==> Linting JSON <==${RESET}"
 #echo -e "Checking these files:"
 #fd --extension json -X ls -ld
-echo -e "Results:"
-fd --extension json --exec jsonlint --quiet --compact | tee $ERORR_FILE
-if [ -s "$FILE" ]; then
-    echo -e "${RED}Ooh, there was an error${RESET}"
-    echo ::set-output name=exit_code::1
-else
-    echo -e "${GREEN}Great, all good${RESET}"
-    echo ::set-output name=status::'Success'
-fi
+#echo -e "Results:"
+#fd --extension json --exec jsonlint --quiet --compact | tee $ERORR_FILE
+#if [ -s "$FILE" ]; then
+#    echo -e "${RED}Ooh, there was an error${RESET}"
+#    echo ::set-output name=exit_code::1
+#else
+#    echo -e "${GREEN}Great, all good${RESET}"
+#    echo ::set-output name=status::'Success'
+#fi
